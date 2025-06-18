@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/49985d21bc.js" crossorigin="anonymous"></script>
+</head>
+        <% const date = new Date(); %>
+        <%  const day = date.getDate(); %>
+        <%  const month = date.getMonth() + 1; %>
+        <%  const year = date.getFullYear(); %>
+        <%  const currentDate = `${day}/0${month},${year}`; %>
+
+<body class="bg-[#fff7ed]">
+    <%- include('nav.ejs') %>
+    <main>
+        <p class="px-12 text-[#9a3412] text-[1.2rem] mt-4"> <i class="fa-solid fa-arrow-left"></i> <a href="/">Back to all post</a></p>
+       <div class="flex items-center justify-center flex-col gap-4">
+            <div class="px-12 w-[80vw] h-fit mx-auto mt-6">
+                <img src="<%= image %>" alt="" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h1 class="text-3xl font-bold mb-2" ><%= title %></h1>
+                <p><i class="fa-regular fa-calendar text-gray-500"></i> <%= currentDate %></p>
+                <p><%= content %></p>
+            </div>
+            <div class="mb-4">
+                
+                 <button><a href="/blog/<%= id %>/edit" class="bg-[#9a3412] text-white px-4 py-3 rounded-lg">Edit Post</a></button>
+                <button class="bg-transparent text-[#9a3412] border-[#9a3412] border-2 px-4 py-2 rounded-lg inline-block text-center ml-4" id="delete" data-id="<%= id %>">Delete Post</button>
+            </div>
+       </div>
+       
+    </main>
+    <script src="/js/main.js"></script>
+</body>
+</html>

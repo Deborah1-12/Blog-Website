@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/49985d21bc.js" crossorigin="anonymous"></script>
+</head> 
+<body class="bg-[#fff7ed]">
+    <%- include('nav.ejs') %>
+
+    <main class="flex justify-center items-center flex-col py-4">
+        <p class="text-3xl text-[#9a3412]">Oops, <%= username %> 🥺</p>
+        <img src="/assets/404_image-removebg-preview.png" alt="404 Image" class="w-[50vw] h-[50vh]">
+        <button class="bg-[#9a3412] text-white px-4 py-2 rounded-lg"><a href="/">Go to Home</a></button>
+    </main>
+</body>
+</html>

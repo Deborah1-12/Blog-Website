@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange|</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/49985d21bc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <main class="py-4 px-12">
+        <h1 class="text-2xl font-bold text-[#9a3412]">Edit a Post</h1>
+        <form id="editForm" class="mt-4">
+            <input type="hidden" name="_method" value="PUT">
+            <input 
+                type="text" 
+                name="title" 
+                placeholder="Post Title" 
+                required 
+                class="w-full p-2 mb-4 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]" 
+                id="title"
+                value="<%= title%>"
+            >
+
+            <input 
+                type="url" 
+                name="image" 
+                placeholder="Image URL" 
+                class="w-full p-2 mb-4 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]" 
+                id="image"
+                value="<%= image %>"
+            >
+
+            <textarea 
+                name="content" 
+                placeholder="Write your post here..." 
+                required 
+                class="w-full p-2 mb-4 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]" 
+                rows="10" 
+                id="content"
+            ><%= content %></textarea>
+            <button type="submit" class="bg-[#f97316] text-white p-3 rounded hover:bg-[#ea580c] transition duration-200" id="edit" data-id="<%= id %>">Save Post</button>
+            <button><a href="/blog/<%= id %>" class="text-[#f97316] bg-transparent p-2 rounded border-[#f97316] border-2 ml-4 hover:bg-[#f97316] hover:text-white transition duration-200">Cancel</a></button>
+        </form>
+        <script src="/js/main.js"></script>
+</body>
+</html>

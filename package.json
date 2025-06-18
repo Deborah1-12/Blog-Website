@@ -1,0 +1,30 @@
+{
+  "name": "blog-website",
+  "version": "1.0.0",
+  "description": "A simple blog website built with node.js and express.js ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "postcss src/css/style.css -o public/css/style.css",
+    "watch:css": "postcss src/css/style.css -o public/css/style.css --watch"
+  },
+  "author": "Deborah Abang",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.15.2",
+    "validator": "^13.15.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.8"
+  }
+}
