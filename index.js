@@ -13,8 +13,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port = 4000;
-const dbURI = 'mongodb+srv://BlogWebsiteUser:HaileyxBillie@blog-website.c4lufrr.mongodb.net/blog-website?retryWrites=true&w=majority&appName=blog-website';
-mongoose.connect(dbURI).then((result) =>app.listen(port, () => {
+const dbURI = process.env.MONGO_URI;
+mongoose.connect(dbURI).then(() => app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 }))
 .catch((err) => console.log(err));
