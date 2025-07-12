@@ -1,33 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orange | <%= title %></title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://kit.fontawesome.com/49985d21bc.js" crossorigin="anonymous"></script>
-</head>
-<body class="bg-[#fff7ed] flex items-center justify-center h-screen">
-    <div class="w-[92vw] sm:w-120 bg-white h-130 rounded-[10px] shadow-sm relative">
-        <h1 class="text-[#9a3412] text-3xl text-center font-bold py-4 px-10">Create an Account</h1>
-        <p class="text-center text-xl">Join our community today</p>
-        <form action="/signup" method="POST" class="flex flex-col items-center py-8 px-8">
-            <input type="email" name="email" placeholder="Email" required class="w-80 p-2 mb-8 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]  ">
-            <p class="text-red-600" id="email"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orange | <%= title %> </title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/49985d21bc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-[#fff7ed] flex items-center justify-center h-screen">
+    <div
+      class="w-[92vw] sm:w-120 bg-white h-130 rounded-[10px] shadow-sm relative"
+    >
+      <h1 class="text-[#9a3412] text-3xl text-center font-bold py-4 px-10">
+        Create an Account
+      </h1>
+      <p class="text-center text-xl mb-4">Join our community today</p>
+      <form
+        action="/signup"
+        method="POST"
+        class="flex flex-col items-center  px-8"
+      >
+        <div class="mb-8">
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                class="w-80 p-2 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]"
+            />
+            <% if (errors && errors.email) { %>
+            <p class="text-[#f97316] "><%= errors.email %></p>
+            <% } %>
+        </div>
 
-            <input type="text" name="username" placeholder="Username" required class="w-80 p-2 mb-8 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]  ">
-            <p class="text-red-600" id="username"></p>
+        <div class="mb-8">
+            <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+                class="w-80 p-2 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]"
+            />
+            <% if (errors && errors.username) { %>
+            <p class="text-[#f97316]"><%= errors.username %></p>
+            <% } %>
+        </div>
 
-            <div class="relative w-80 mb-8">
-                <input type="password" name="password" id="password" placeholder="Password" required class="w-full p-2 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa] pr-10" >
-                <i class="fa-solid fa-eye absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"></i>
-            </div>
-            <p class="text-red-600" id="password"></p>
+        <div class="relative w-80 mb-8">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+            class="w-full p-2 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa] pr-10"
+          />
+          <i
+            class="fa-solid fa-eye absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+          ></i>
+            <% if (errors && errors.password) { %>
+                <p class="text-[#f97316]"><%= errors.password %></p>
+            <% } %>
+        </div>
+        
 
-            <button type="submit" class="bg-[#f97316] text-white w-80 p-2 mb-8 rounded hover:bg-[#ea580c] transition duration-200">Sign Up</button>
-        </form>
-        <p class="text-center text-sm text-gray-500">Already have an account? <a href="/login" class="text-[#f97316] hover:underline">Log In</a></p>
+        <button
+          type="submit"
+          class="bg-[#f97316] text-white w-80 p-2 mb-8 rounded hover:bg-[#ea580c] transition duration-200"
+        >
+          Sign Up
+        </button>
+      </form>
+      <p class="text-center text-sm text-gray-500">
+        Already have an account?
+        <a href="/login" class="text-[#f97316] hover:underline">Log In</a>
+      </p>
     </div>
     <script src="/js/main.js"></script>
-</body>
+  </body>
 </html>

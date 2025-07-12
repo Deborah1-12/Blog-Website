@@ -29,5 +29,24 @@ userSchema.pre('save', async function(next){
     this.password = await bcrypt.hash(this.password, salt)
     next();
 });
+
+//static method before user is logged in
+userSchema.statics.login = async function(username, password) {
+    //checks for username in the db collection 
+    const user = await this.findOne({username});
+    //checking if user exists
+    if (user) {
+       //if user exists, compares pw in the db
+       const auth = await bcrypt.compare(password, user.password);
+       //checking if the comparison is completed
+       if (auth) {
+            return user;
+       }
+       throw Error ('Incorrect Password');
+    }
+    throw Error ('Incorrect Username');
+}
 const User = mongoose.model('User', userSchema);
 export default User;
+
+/* when comparing password using bcrypt.compare, it takes in 2 arguments i.e the new password inputted and the prev pw */

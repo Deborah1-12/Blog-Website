@@ -12,11 +12,19 @@
         <h1 class="text-[#9a3412] text-3xl text-center font-bold py-4 px-10">Welcome!</h1>
         <p class="text-center text-xl">Please log in to continue</p>
         <form action="/login" method="POST" class="flex flex-col items-center py-10 px-8">
-            <input type="text" name="username" placeholder="Username" required class="w-80 p-2 mb-8 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]  ">
+            <div class="mb-8">
+                <input type="text" name="username" placeholder="Username" required class="w-80 p-2  border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa]  ">
+                <% if (errors && errors.username) { %>
+                <p class="text-[#f97316]"><%= errors.username %></p>
+                <% } %>
+            </div>
 
             <div class="relative w-80 mb-8">
                 <input type="password" name="password" id="password" placeholder="Password" required class="w-full p-2 border border-[#fed7aa] rounded focus:outline-none focus:ring-1 focus:ring-[#fed7aa] pr-10" >
                 <i class="fa-solid fa-eye absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"></i>
+                <% if (errors && errors.password) { %>
+                <p class="text-[#f97316]"><%= errors.password %></p>
+                <% } %>
             </div>
 
             <button type="submit" class="bg-[#f97316] text-white w-80 p-2 mb-8 rounded hover:bg-[#ea580c] transition duration-200">Login</button>
