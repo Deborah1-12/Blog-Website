@@ -6,13 +6,22 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import authRoutes from './routes/authRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
+
+if (!process.env.MONGO_URI) {
+  console.error('Error: MONGO_URI is not defined in your .env file.');
+  process.exit(1);
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port = 4000;
+
+console.log('Mongo URI:', process.env.MONGO_URI);
+
 const dbURI = process.env.MONGO_URI;
 mongoose.connect(dbURI).then(() => app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
@@ -30,6 +39,7 @@ app.use(session({
   resave: false,             
   saveUninitialized: true    
 }));
+app.use(cookieParser());
 
 app.use(authRoutes);
 app.use(blogRoutes);
