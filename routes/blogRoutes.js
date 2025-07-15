@@ -11,10 +11,10 @@ import {
   updatePost,
   deletePost
 } from '../controllers/blogController.js';
-import {requireAuth, checkUser} from '../middleware/authMiddleware.js'
+import {requireAuth} from '../middleware/authMiddleware.js'
 
 const router = express.Router();
-router.get('/', checkUser, getHome);
+router.get('/', getHome);
 router.get('/create', requireAuth, getCreate);
 router.post('/create', requireAuth, postCreate);
 router.get('/post', getPost);
