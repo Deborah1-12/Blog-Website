@@ -11,7 +11,7 @@ import {
   updatePost,
   deletePost
 } from '../controllers/blogController.js';
-import {requireAuth} from '../middleware/authMiddleware.js'
+import {requireAuth} from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 router.get('/', getHome);
