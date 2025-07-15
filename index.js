@@ -43,6 +43,6 @@ app.use(session({
 app.use(cookieParser());
 
 // Middleware to check user on all routes
-//  app.use(checkUser);
+ app.use(checkUser);
 app.use(authRoutes);
 app.use(blogRoutes);
