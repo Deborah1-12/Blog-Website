@@ -77,6 +77,10 @@ export const postSignup = async (req, res) => {
       res.status(400).render('signup', { title: "Signup", errors });
     }
   }
-
+export const Logout = (req, res) => {
+  //logging a user out, you need to replace the jwt with a blank one with a short age
+  res.cookie('jwt', '', {maxAge: 1});
+  res.redirect('/');
+ }
  /*  jwt.sign() is a method to sign the jwt 
  it takes in 3 arguments. one is the id in an object form and the other is a secret the payload will be hashed with this 2 to create the signature the third one is the options {} that carries the max age and stuff*/

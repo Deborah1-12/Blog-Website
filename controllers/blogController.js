@@ -1,14 +1,10 @@
 import Blog from '../models/blog.js';
 
 export const getHome =  async (req, res) => {
-  // Check if the user is logged in
-    if (!req.session.username) {
-    return res.redirect('/login');
-  }
 
-  const searchTerm = req.query.q; // get search from URL like /?q=hailey
+  const searchTerm = req.query.q; // get search from URL ;
+
   let blogs;
-
   if (searchTerm) {
     blogs = await Blog.find({
       $or: [
@@ -22,7 +18,6 @@ export const getHome =  async (req, res) => {
 
   res.render('index', {
     title: "Home",
-    username: req.session.username,
     blogs,
     searchTerm,
     });

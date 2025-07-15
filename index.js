@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import authRoutes from './routes/authRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
+import { checkUser } from './middleware/authMiddleware.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -41,6 +42,7 @@ app.use(session({
 }));
 app.use(cookieParser());
 
+// Middleware to check user on all routes
+ app.use(checkUser);
 app.use(authRoutes);
 app.use(blogRoutes);
-
