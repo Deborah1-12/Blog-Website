@@ -1,29 +1,59 @@
 <div class="flex items-center gap-4 py-4 px-6 bg-[#f9781d] md:py-6 md:px-8">
-    <img src="/assets/orange-part-2-svgrepo-com.svg" alt="Orange Logo" class="w-8 h-8">
-    <h1 class="text-3xl font-bold text-[#fff7ed]">Orange</h1>
-    <div class="flex gap-4 ml-auto">
-        <a href="/" class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center">
-            <i class="fa-solid fa-home"></i>
-            <span class="ml-2 hidden md:inline">Home</span>
-        </a>
-        <% if (typeof user !== 'undefined' && user) { %>
-        <a href="/create" class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center">
-            <i class="fa-solid fa-pen"></i>
-            <span class="ml-2 hidden md:inline">New Post</span>
-        </a>
-        <a href="/auth/logout" class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span class="ml-2 hidden md:inline">Log Out</span>
-        <img src="<%= user.googleThumbnail %>" alt="">
-        <% } else { %>
-        <a href="/auth/login" class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <span class="ml-2 hidden md:inline">Log In</span>
-        </a>
-        <a href="/auth/signup" class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center">
-            <i class="fa-solid fa-user-plus"></i>
-            <span class="ml-2 hidden md:inline">Sign Up</span>
-        </a>
-        <% } %>
-    </div>
+  <img
+    src="/assets/orange-part-2-svgrepo-com.svg"
+    alt="Orange Logo"
+    class="w-8 h-8"
+  />
+  <h1 class="text-3xl font-bold text-[#fff7ed]">Orange</h1>
+  <div class="flex gap-4 ml-auto">
+    <a
+      href="/"
+      class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center"
+    >
+      <i class="fa-solid fa-home"></i>
+      <span class="ml-2 hidden md:inline">Home</span>
+    </a>
+    <% if (typeof user !== 'undefined' && user) { %>
+    <a
+      href="/create"
+      class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center"
+    >
+      <i class="fa-solid fa-pen"></i>
+      <span class="ml-2 hidden md:inline">New Post</span>
+    </a>
+    <a
+      href="/auth/logout"
+      class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center"
+    >
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <span class="ml-2 hidden md:inline">Log Out</span>
+    </a>
+    <% } else { %>
+    <a
+      href="/auth/login"
+      class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center"
+    >
+      <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      <span class="ml-2 hidden md:inline">Log In</span>
+    </a>
+    <a
+      href="/auth/signup"
+      class="bg-[#fff7ed] p-2 rounded-[7px] text-[#f9781d] hover:bg-orange-100 flex items-center"
+    >
+      <i class="fa-solid fa-user-plus"></i>
+      <span class="ml-2 hidden md:inline">Sign Up</span>
+    </a>
+    <% } %>
+  </div>
+  <% if (user) { %>
+  <div class="h-8 w-8 rounded overflow-hidden ml-4">
+   <a href="/profile">
+        <img
+            src="<%= user.googleThumbnail %>"
+            alt="User Image"
+            class="w-full h-full object-cover"
+        />
+   </a>
+  </div>
+  <% } %>
 </div>
